@@ -1,0 +1,31 @@
+{% extends "first_app/base.html" %}
+
+{% block title %}
+  Home
+{% endblock title %}
+
+{% block body %}
+    {% for item in item_list %}
+    <!-- <ul>
+        <li>
+            <a href="{% url 'food:detail' item.id %}"
+            >{{item.id}} -- {{item.item_name}}</a
+            >
+        </li>
+    </ul> -->
+
+    <div class="row my-sm-4">
+        <div class="col-md-3 offset-md-2">
+            <img src="{{item.item_image}}" alt="food image" class="card" height="150px" width="250px">
+        </div>
+        <div class="col-md-4">
+            <h3>{{ item.item_name }}</h3>
+            <h4>{{ item.item_desc }}</h4>
+            <h5>${{ item.item_price }}</h5>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'food:detail' item.id %}" class="btn btn-success">Detail</a>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}
